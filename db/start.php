@@ -1,4 +1,5 @@
 <?php
 include "db/QueryBuilder.php";
 include 'db/Connection.php';
-return new QueryBuilder(Connection::make());
+$config = include __DIR__ . '/../config.php';
+return new QueryBuilder(Connection::make($config['db']));

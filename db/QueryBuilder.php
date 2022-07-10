@@ -2,15 +2,16 @@
 
 class QueryBuilder
 {
-    protected PDO $pdo;
+//    protected PDO $pdo;
 
-    public function __construct($pdo)
+    public function __construct(protected PDO $pdo)
     {
-        $this->pdo = $pdo;
+
     }
 
     public function getAll(): array
     {
+        debug($this->pdo);
         $stmt = $this->pdo->prepare('SELECT * FROM posts');
         $stmt->execute();
         return $stmt->fetchAll();

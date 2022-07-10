@@ -2,9 +2,8 @@
 
 class Connection
 {
-    public static function make(): PDO
+    public static function make($config): PDO
     {
-
-        return new PDO('mysql:dbname=marlin_oop;host=127.0.0.1:3307', 'root', '', [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
+        return new PDO("{$config['dsn']};charset={$config['charset']}", "{$config['username']}", "{$config['password']}", $config['default_attr']);
     }
 }
