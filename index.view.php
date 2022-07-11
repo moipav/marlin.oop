@@ -11,16 +11,19 @@
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
-                <a href="#" class="btn btn-success">add post</a>
+                <a href="/create.php" class="btn btn-success">add post</a>
                 <tbody>
-                <?php foreach ($posts as $post): ?>
+                <?php
+                /**
+                 *@var $posts
+                 */foreach ($posts as $post): ?>
                     <tr>
                         <th scope="row"><?=$post['id']?></th>
-                        <td><?=$post['title']?></td>
+                        <td><a href="/show.php?id=<?=$post['id']?>" class="link-dark"><?=$post['title']?></a></td>
                         <td><?=$post['post']?></td>
                         <td>
-                            <a href="#" class="btn btn-warning">edit</a>
-                            <a href="#" class="btn btn-danger">delete</a>
+                            <a href="/edit.php?id=<?=$post['id']?>" class="btn btn-warning">edit</a>
+                            <a href="/delete.php?id=<?=$post['id']?>" class="btn btn-danger">delete</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
